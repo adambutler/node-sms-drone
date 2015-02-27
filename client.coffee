@@ -15,7 +15,7 @@ drone.connect ->
   drone.setup ->
     console.log 'setup'
     drone.startPing()
-    socket = new Pusher(process.env.UUID)
+    socket = new Pusher(process.env.PUSHER_KEY)
     channel = socket.subscribe('drone')
     channel.bind 'command', (data) ->
       switch data.message.toLowerCase()
